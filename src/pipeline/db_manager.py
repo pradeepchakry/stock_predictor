@@ -23,15 +23,14 @@ class DBManager:
             """))
             
             conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS news_sentiment (
-                id SERIAL PRIMARY KEY,
-                symbol VARCHAR(20),
-                date DATE,
-                headline TEXT,
-                sentiment NUMERIC,
-                source TEXT,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );
+            CREATE TABLE IF NOT EXISTS news_articles (
+                    id SERIAL PRIMARY KEY,
+                    source VARCHAR(255),
+                    title TEXT,
+                    published_date TIMESTAMP,
+                    url TEXT,
+                    content TEXT
+                );
             """))
 
             conn.commit()
@@ -53,4 +52,3 @@ class DBManager:
             cur.close()
         finally:
             conn.close()
-

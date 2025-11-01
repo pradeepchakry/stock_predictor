@@ -177,3 +177,5 @@ newsapi-python
 textblob
 feedparser
 nsepython
+news-please
+tqdm
